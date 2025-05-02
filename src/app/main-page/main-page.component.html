@@ -1,0 +1,42 @@
+<div class="center_items">
+  <div class="example-container-header"><h2>Ranking</h2></div>
+  <div class="example-container-header"><h2>Disney Movies</h2></div>
+</div>
+
+<div class="center_items">
+  <div class="example-container">
+    <div
+      cdkDropList
+      #TheRankList="cdkDropList"
+      [cdkDropListData]="rankingList"
+      [cdkDropListConnectedTo]="[TheDisneyList]"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)">
+      @for (item of rankingList; track item;let  i = $index) {
+        <div class="example-box" cdkDrag>{{i+1}}: {{item}}</div>
+      }
+    </div>
+
+  </div>
+  <div class="example-container">
+    <div
+      cdkDropList
+      #TheDisneyList="cdkDropList"
+      [cdkDropListData]="AllDisneyMovies"
+      [cdkDropListConnectedTo]="[TheRankList]"
+      class="example-list"
+      cdkDropListSortingDisabled
+      (cdkDropListDropped)="drop($event)">
+      @for (item of AllDisneyMovies; track item) {
+        <div class="example-box" cdkDrag>{{item}}</div>
+      }
+    </div>
+  </div>
+</div>
+
+
+<div class="center_items">
+  <button (click)="cleanList()">Delete List</button>
+  <button (click)="downloadList()">Download List</button>
+
+</div>
