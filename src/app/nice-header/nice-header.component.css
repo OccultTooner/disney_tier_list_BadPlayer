@@ -1,23 +1,23 @@
 * {box-sizing: border-box;}
 
-body { 
+body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
 }
 
 .header {
   overflow: hidden;
-  background-color: #7bccff;
+  background-color: #113CCF;
   padding: 20px 10px;
 }
 
 .header a {
   float: left;
-  color: black;
+  color: #ffff;
   text-align: center;
   padding: 12px;
   text-decoration: none;
-  font-size: 18px; 
+  font-size: 18px;
   line-height: 25px;
   border-radius: 4px;
 }
@@ -28,7 +28,7 @@ body {
 }
 
 .header a:hover {
-  background-color: #ddd;
+  background-color: #9ea9cd;
   color: black;
 }
 
@@ -47,7 +47,7 @@ body {
     display: block;
     text-align: left;
   }
-  
+
   .header-right {
     float: none;
   }

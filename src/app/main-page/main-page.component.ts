@@ -8,16 +8,18 @@ import {
 } from '@angular/cdk/drag-drop';
 import { movieList } from './list_data';
 import { CookieService } from 'ngx-cookie-service';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-main-page',
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.css'],
-  imports: [CdkDropList, CdkDrag],
+  imports: [CdkDropList, CdkDrag,NgClass],
 })
 export class MainPageComponent implements OnInit {
   rankingList = [''];
   AllDisneyMovies = [''];
+expression: any;
   //AllDisneyMovies = JSON.parse(JSON.stringify(movieList));
 
   constructor(private cookieService: CookieService) {
