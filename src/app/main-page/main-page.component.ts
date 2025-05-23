@@ -14,12 +14,13 @@ import { NgClass } from '@angular/common';
   selector: 'app-main-page',
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.css'],
-  imports: [CdkDropList, CdkDrag,NgClass],
+  imports: [CdkDropList, CdkDrag, NgClass],
 })
 export class MainPageComponent implements OnInit {
   rankingList = [''];
   AllDisneyMovies = [''];
-expression: any;
+  expression: any;
+
   //AllDisneyMovies = JSON.parse(JSON.stringify(movieList));
 
   constructor(private cookieService: CookieService) {
@@ -44,7 +45,7 @@ expression: any;
   ngOnInit(): void {}
 
   updateCacheList() {
-    this.cookieService.set('DisneyRankCache', JSON.stringify(this.rankingList));
+    this.cookieService.set('DisneyRankCache', JSON.stringify(this.rankingList), 1095);//number is days
   }
 
   cleanList() {
@@ -56,9 +57,10 @@ expression: any;
     let element = document.createElement('a');
     element.setAttribute(
       'href',
-      'data:text/plain;charset=utf-8, ' + encodeURIComponent(JSON.stringify(this.rankingList))
+      'data:text/plain;charset=utf-8, ' +
+        encodeURIComponent(JSON.stringify(this.rankingList))
     );
-    element.setAttribute('download','rankList');
+    element.setAttribute('download', 'rankList');
     document.body.appendChild(element);
     element.click();
 
